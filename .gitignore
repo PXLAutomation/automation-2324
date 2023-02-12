@@ -1,0 +1,41 @@
+# .vagrant/ directory
+.vagrant/
+
+# VirtualBox files
+*.vbox
+*.vbox-prev
+
+# Vagrant backups
+*.backup
+
+# Virtual machine disk files
+*.vmdk
+
+# Log files
+*.log
+
+# cache files
+.cache
+
+# Generated files
+*.box
+*.ova
+
+# Environment Variables
+.env
+
+# Ansible generated files
+*.retry
+hosts
+
+# Ansible logs
+*.log
+
+# Ansible vault
+*.vault
+
+# Ansible ssh key
+.ansible/tmp/ansible-ssh-*
+
+# Ansible temporary files
+.ansible/tmp/
