@@ -1,0 +1,45 @@
+- hosts: all
+  become: true
+
+  vars:
+    my_var1: "pxl1"
+    my_var2: "pxl2"
+    my_playbook_var: "This is my playbook variable"
+
+  vars_files:
+    - my_vars.yml
+
+  tasks:
+  - name: Display variable 1 value 
+    debug:
+      var: my_var1
+
+  - name: Display variable 2 value 
+    debug:
+      msg: "The value of my_var2 is {{ my_var2 }}"
+
+  - name: Display variable value
+    vars:
+      my_var: "This is my variable"
+    debug:
+      var: my_var
+
+  - name: Run command and store output in variable
+    shell: echo "This is my output variable"
+    register: my_output_var
+
+  - name: Display output variable value
+    debug:
+      msg: "{{ my_output_var.stdout }}"
+  
+  - name: Display playbook variable value
+    debug:
+      var: my_playbook_var
+
+  - name: Display file variable value
+    debug:
+      var: my_file_var
+
+  - name: Display gathered facts
+    debug:
+      var: ansible_facts
