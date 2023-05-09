@@ -1,0 +1,6 @@
+---
+# handlers file for test_role
+- name: Restart the Nginx service
+  service:
+    name: nginx
+    state: restarted
