@@ -1,0 +1,6 @@
+---
+- name: Handlers Exercise 1
+  hosts: all
+  become: true
+  roles:
+    - chrony

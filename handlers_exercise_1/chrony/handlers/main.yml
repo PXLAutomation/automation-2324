@@ -1,0 +1,5 @@
+---
+- name: Restart_chrony
+  ansible.builtin.service:
+    name: "{{ chrony_svc }}"
+    state: 'restarted'

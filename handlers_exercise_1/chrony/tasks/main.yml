@@ -1,0 +1,19 @@
+---
+- name: Ensure that chrony time server is installed
+  ansible.builtin.package:
+    name: 'chrony'
+    state: 'present'
+
+- name: Ensure chrony time server is enabled and running
+  ansible.builtin.service:
+    name: "{{ chrony_svc }}"
+    state: 'started'
+    enabled: true
+
+- name: Copy standard config file for chrony time server
+  ansible.builtin.copy:
+    dest: "{{ chrony_conf }}"
+    src: "{{ source_config_file }}"
+    mode: '0644'
+  notify: 'restart_chrony'
+  ignore_errors: true
